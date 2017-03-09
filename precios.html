@@ -5,27 +5,29 @@
 		<meta charset="utf-8">
 		<link href='https://fonts.googleapis.com/css?family=Montserrat:400,700|Allerta' rel='stylesheet' type='text/css'>
 		<link rel="stylesheet" href="css/invie.css">
+		<meta name="viewport" content="width=device-width, initila-scale=1, user-sacalable=no"/>
 	</head>
-	<body>
+	<body class="precios">
 		<header id="header" class="header background">
 			<div class="contenedor">
 			<figure class="logotipo">
-				<img src="images/invie.png" width="186" height="60" alt="Invie Logotipo">
+				<!--imagen retina scrset="images/invie.png 1x, images/invie2x.png 2x"-->
+				<img  src="images/invie.png" scrset="images/invie.png 1x, images/invie2x.png 2x" width="186" height="60" alt="Invie Logotipo">
 			</fugure> 
-			<nav class="menu">
+			<span class="burguer-button icon-menu" id="burguer-button"></span>
+			<nav class="menu" id="menu">
 				<ul>
 					<li>
 						<a href="index.html">Home</a>
 					</li>
 					<li>
-						<a href="index.html#guitarras">Guitarras</a>
+						<a href="#guitarras">Guitarras</a>
 					</li>
 					<li>
 						<a href="precios.html">Precios</a>
 					</li>
 				</ul>
 			</nav>
-			</div>
 		</header>
 		<section class="tabla">
 		<div class="contenedor">
@@ -101,5 +103,37 @@
 			</form>
 		</div>
 	</footer>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/blazy/1.8.2/blazy.min.js"></script>
+	<script>
+		/*var consulta = window.matchMedia('(max-width: 500px)');
+		consulta.addListener(mediaQuery);
+
+		function mediaQuery() {
+			if (consulta.matches) {
+				// si se cumple hagamos que
+				console.log('se cumplio la condicion');
+				$burguerButton.addEventListener('touchstart', toggleMenu);
+			} else{
+				$burguerButton.removeEventListener('touchstart', toggleMenu);
+				//si no se cumple hagamos esto
+				console.log('no se cumplio la condicion');
+			}
+		}
+*/
+	/*hace que el burguer menu funcione como boton para deslegar el menu*/
+	var $burguerButton = document. getElementById('burguer-button');
+	var $menu = document. getElementById('menu');
+
+	$burguerButton.addEventListener('touchstart', toogleMenu);
+
+	function toogleMenu(){
+		$menu.classList.toggle('active');
+	};
+	//lazy loading // https://cdnjs.com/#q=blazy "hace que carguen las imagenes con el scrol y no todas de una vez haciendo que la pagina pese menos"
+	var blazy = new Blazy({
+			selector: 'img'
+	});
+	//
+	</script>
 	</body>
 </html>
